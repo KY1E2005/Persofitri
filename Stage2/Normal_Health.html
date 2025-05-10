@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Personalized Programs</title>
+        <meta property="og:title" content="Personalized Programs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta property="twitter:card" content="summary_large_image">
+        <script src="sweetalert.js"></script>
+        
+
+        <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}
+      body {  margin: 0;}
+      * {  box-sizing: border-box;  border-width: 0;  border-style: solid;}
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button {  background-color: transparent;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      html { scroll-behavior: smooth  }
+      </style>
+
+      <style data-tag="default-style-sheet">
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+      </style>
+      <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css">
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+    </head>
+    <body>
+        
+        <div>
+            <link href="./CSS/Personalized Programs.css" rel="stylesheet">
+            <div class="main-container">
+                <header id="main header container" class="NormalHealth-Header-Container">
+                    <img id="image logo" alt="image" src="./public/logo-removebg.png" class="Logo-img" onclick="account()">
+                    <div id="account-container" class="Account-container">
+                        <h3 id="welcome-user-header" class="Welcome-header">Welcome User</h3>
+              <p id="Health Classification" class="Normal-Health_Color">Normal Weight</p>
+              </div>
+              </header>
+
+              <script>
+                function account() {
+                    Swal.fire({
+                        title: "Want to go back to Homepage?",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "Go Back Home",
+                        showCancelButton: true,
+                        cancelButtonText: "Cancel",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "index.html";
+                        }
+                    });
+                }
+        
+                window.onload = function() {
+                const params = new URLSearchParams(window.location.search);
+                console.log(params); // Add this line to log the params object
+                const userId = params.get('user_id');
+
+                if (!userId) {
+                console.error("User ID is missing or undefined.");
+                return;
+            }
+
+            const Welcome = document.getElementById('welcome-user-header');
+
+                // Fetch user name from server using user ID
+                fetch(`/get-user-name?user_id=${userId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.name) {
+                           Welcome.textContent = `Welcome ${data.name}`;
+                        } else {
+                            console.error('Invalid data format:', data);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching user name:', error));
+        };
+            </script>
+
+              <div id="Button Container" class="Main-Button-Container">
+                <button id="fitness button" type="button" class="button Fitness-Button">Fitness</button>
+                <button id="Nutrition Button" class="main-link button Nutrition-Button"><a href="#Nutrition main header"><p class="Nutrition-Button-text">Nutrition</p></a></button>
+                    </div>
+                    <section id="Fitness Container" class="Fitness-Section">
+                        <div id="fitness-header-container" class="Fitness-Header-Container">
+                            <h1 id="Fitness Heading 1" class="Fitness-heading-1">Recommended Video Demos</h1>
+                            </div>
+                            <div id="Outer Videos container" class="Main-Video-Container">
+                                <div id="Inner Videos Container" class="Inner-video-container">
+                                    <iframe id="iFrame 1" class="main-iframe" src="https://www.youtube.com/embed/_l3ySVKYVJ8?si=cEBIvKnKdGy766SP" ></iframe>
+                                    <iframe id="iFrame 2" class="main-iframe1" src="https://www.youtube.com/embed/IK5TLJqgiT4?si=OHOR30yBsTpDlRPf"></iframe>
+                                    <iframe id="iFrame 3" class="main-iframe2" src="https://www.youtube.com/embed/Xjo_fY9Hl9w?si=1UFqmEOFe33IkQIJ" ></iframe>
+                                    <iframe id="iFrame 4" class="main-iframe3" src="https://www.youtube.com/embed/WOJIrYjS5c4?si=pj1LQKxW0KnsPmLk"></iframe>
+                                    <iframe id="iFrame 5" class="main-iframe4" src="https://www.youtube.com/embed/H0HPl6VYi0c?si=ibLY9TUgf5uHhfSb"></iframe>
+                                    <iframe id="iFrame 6" class="main-iframe5" src="https://www.youtube.com/embed/znT7VeY-QaA?si=mI-alNkwfE1VaT8k"></iframe>
+                                </div>
+                            </div>
+                                <div id="tips container" class="Fitness-tips-container"><p class="Tips-text">Aim to incorporate a combination of different 
+                                  exercise types to target various muscle groups and improve overall fitness. Engage in activities that elevate your heart
+                                  rate and breathing for a sustained period. Alternate short bursts of intense activity with periods of rest or lower-intensity 
+                                  exercise. High-intensity interval training (HIIT) can be a time-efficient way to boost cardiovascular health (2-3 sessions per week).
+                                    </p>
+                                    </div>
+                                    <div class="main-container09 Fitness-header-container-2">
+                                        <h1 id="Fitness-header-2" class="main-text09 fitness-header-2">Physical Activities</h1>
+                                        </div>
+                                        <div id="outer Activity container" class="Main-Activities-container">
+                                            <div id="inner activities container" class="Inner-Activity-container">
+                                                <a href="https://www.betterhealth.vic.gov.au/health/healthyliving/tennis-health-benefits">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Tennis.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Tennis</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://www.medicalnewstoday.com/articles/321496">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Swimming.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Swimming</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://www.siroko.com/blog/c/how-cycling-changes-your-body-internal-and-external-effects/">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Cycling.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Cycling</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://obgynhealthplus.org/how-dancing-can-benefit-your-health">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Dancing_Man.jpeg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Dancing</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                </section>
+                                        <div id="Nutrition main header" class="Nutrition-main-container">
+                                    <h1 id="Nutrition section header" class="Main-Nutrition-header">Nutrition</h1>
+                                    </div>
+                                    
+            <section id="nutrition section" class="Nutrition-Section">
+                <div class="Nurition-reccomendation-container">
+                    <h1 id="nutrition recommendation header" class="Nutrition-header-1">Nutrition Recommendation</h1>
+                    </div>
+                    <div id="outer recommendation container" class="Main-Recommendation-container">
+                        <div id="inner container layer 1" class="Inner-recommendation-container">
+                            <div class="main-container17"><p class="Nutrition-text"><h3>Focus on a Balanced Diet:</h3></br>- Fruits and vegetables (aim for at least 5 servings per day)</br>- Healthy fats (avocado, nuts, seeds, olive oil)</br>- Lean protein sources (chicken, fish, beans, lentils)</p></div>
+                            <div class="main-container18"><p class="Nutrition-text"><h3>Minimize Processed Foods:</h3></br>- Limit processed foods that are high in unhealthy fats, added sugars, and sodium. These contribute to empty calories and offer minimal nutritional value.</p></div>
+                            <div class="main-container19"><p class="Nutrition-text"><h3>Portion Control:</h3></br>- Be mindful of portion sizes to avoid overeating, even healthy foods.</br>- Use measuring cups and spoons or focus on visual cues like your palm or fist for portion reference.</p></div>
+                            <div class="main-container20"><p class="Nutrition-text"><h3>Hydration:</h3></br>- Drink plenty of water throughout the day. Aim for around eight glasses of water daily, adjusting for your activity level and climate.</p></div>
+                        </div>
+                    </div>
+                        <div id="meal plan header container" class="Meal-plan-header-container">
+                            <h1 id="Meal plan header" class="Nutrition-header-2">Recommended Meal Plans</h1>
+                            </div>
+                            <div id="outer meal plan container" class="Main-mealPlan-container">
+                                <div id="inner meal Plan container" class="inner-mealPlan-container">
+
+                                   <a href="https://quisinequeenb.com/honey-nut-oatmeal/">
+                                    <div class="card">
+                                        <img alt="image" src="./public/Oat Meal.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Oatmeal with nuts and seeds and a drizzle of honey</p>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a href="https://themodernproper.com/greek-grilled-chicken-with-salad">
+                                      <div class="card">
+                                        <img alt="image" src="./public/Greek-chicken-salad.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Grilled <span style="font-size:22px;">Mediterranean</span> Chicken & Bread Salad</p>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a href="https://www.allrecipes.com/recipe/221261/peanut-butter-banana-smoothie/">
+                                      <div class="card">
+                                        <img alt="image" src="./public/peanut-butter-banana-smoothie.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Peanut Butter Banana Smoothie</p>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a href="https://www.fitnessblender.com/articles/one-pan-salmon-with-roasted-vegetables-and-rice">
+                                      <div class="card">
+                                        <img alt="image" src="./public/Salmon with Brown Rice.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Baked salmon with roasted vegetables and brown rice</p>
+                                        </div>
+                                      </div>
+                                    </a>
+                                </div>
+                            </div>
+                    </section>
+
+                    <footer id="Footer Container" class="main-container24 Main-Footer">
+                        <div class="main-container25">
+                            <p id="logo Name" class="main-logo logo Company-Name-footer">Persofitri</p>
+                            </div>
+                            <div id="footer seperator" class="Footer-Seperator"></div>
+                            <p id="end credits" class="main-text13 bodySmall end-credits-footer">© 2024 Persofitri, All Rights Reserved.</p>
+                    </footer>
+                    </div>
+                </div>
+  </body>
+</html>

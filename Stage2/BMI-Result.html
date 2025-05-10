@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BMI Result</title>
+        <meta property="og:title" content="BMI result page">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta property="twitter:card" content="summary_large_image">
+
+        <style data-tag="reset-style-sheet">
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button {  background-color: transparent;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      </style>
+
+      <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+        .underweight { color: #960c3c; }
+        .normal { color: #3fd141; }
+        .overweight { color: #d46520; }
+        .obese { color: #9c1309; }
+      </style>
+
+      <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css">
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+      </head>
+
+      <body>
+            <link href="./CSS/BMI-Result.css" rel="stylesheet">
+            <div id="Frame" class="home-container">
+                <div id="main-container" class="inner-container home-container1">
+                    <img src="./public/Result BG image.png" alt="image" id="BG-image" class="bg-image">
+                    <div id="Header-container" class="container-heading">
+                        <h1 id="main-heading" class="Main-heading">BMI RESULT</h1>
+                    </div>
+                        <div id="Result-container" class="result-container">
+                            <p id="result-txt" class="Result-Text">Result</p>
+                        </div>
+                            <div id="HC-container" class="Health-classification-container">
+                                <p id="HC-text" class="HC-Text">Health Classification</p>
+                            </div>
+                                <button type="button" id="Generate-Button" class="home-button button"> <span class="Generate-text">CREATE PLAN</span></button>
+                             </div>
+                        </div> 
+
+                        <div class="overlay" id="overlay">
+                            <div class="loader" id="Loader">
+                                <div class="cube_item cube_x"></div>
+                                <div class="cube_item cube_y"></div>
+                                <div class="cube_item cube_y"></div>
+                                <div class="cube_item cube_x"></div>
+                            </div>
+                        </div>
+                        
+                            <script>
+                            window.onload = function() {
+                                const params = new URLSearchParams(window.location.search);
+                                const bmi = parseFloat(params.get('bmi'));
+                                const userId = params.get('user_id'); // Get the user ID
+                                const gender = params.get('gender'); // Get the gender
+
+                                console.log(params); // Log the params object for debugging
+
+                                const resultText = document.getElementById('result-txt');
+                                const classificationText = document.getElementById('HC-text');
+
+                                if (!userId) {
+                                console.error("User ID is missing or undefined.");
+                                return;
+                            }
+
+                            if (!userId) {
+                            console.error("User ID is missing or undefined.");
+                            resultText.textContent = "Error: User ID is missing or invalid.";
+                            classificationText.textContent = "Health Classification: Invalid data";
+                            return;
+                        }
+
+                             if (!gender) {
+                            console.error("Gender is missing or undefined.");
+                            resultText.textContent = "Error: Gender is missing or invalid.";
+                            classificationText.textContent = "Health Classification: Invalid data";
+                            return;
+                        }
+
+                             if (isNaN(bmi)) {
+                                resultText.textContent = "Invalid BMI data provided.";
+                                classificationText.textContent = "Health Classification: Invalid data";
+                                return;
+                            }
+
+
+                                resultText.textContent = `Your BMI is ${bmi.toFixed(2)}`;
+
+                                let classification = "Invalid BMI"; // Default message
+                                let color = '#020202';
+                                let page ="invalid.html";
+
+
+                                if (bmi < 18.5) {
+                                    classification = 'Underweight';
+                                    color = '#bd460b'; // Orange
+                                    page = `underweight${gender === 'Female' ? '(Female)' : ''}.html?user_id=${userId}`;
+                                } else if (bmi >= 18.5 && bmi < 25) {
+                                    classification = 'Normal Weight';
+                                    color = '#0bbd41'; // Green
+                                    page = `Normal_Health${gender === 'Female' ? '(Female)' : ''}.html?user_id=${userId}`;
+                                } else if (bmi >= 25 && bmi < 30) {
+                                    classification = 'Overweight';
+                                    color = '#cc0e37'; // Red
+                                    page = `overweight${gender === 'Female' ? '(Female)' : ''}.html?user_id=${userId}`;
+                                } else if (bmi >= 30) {
+                                    classification = 'Obese';
+                                    color = '#a10611'; // Dark Red
+                                    page = `obese${gender === 'Female' ? '(Female)' : ''}.html?user_id=${userId}`;
+                                } else {
+                                    classification = 'Invalid BMI'; // In case of an unexpected value
+                                }
+
+                                classificationText.textContent = `Health Classification: ${classification}`;
+                                classificationText.style.color = color;
+ 
+                                // Add event listener to the button
+                                document.getElementById('Generate-Button').onclick = function() {
+                                const overlay = document.getElementById('overlay');
+                                overlay.style.visibility = 'visible';
+                                document.body.classList.add('blurred');
+
+                                setTimeout(() => {
+                                    window.location.href = page;
+                                }, 2500); // 2.5 seconds delay
+                            };      
+                    };
+                            </script>
+                 </body>
+          </html>

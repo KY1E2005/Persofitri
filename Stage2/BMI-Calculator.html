@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BMI Calculator</title>
+        <meta property="og:title" content="BMI Calculator">
+        <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta property="twitter:card" content="summary_large_image">
+        <script src="sweetalert.js"></script>
+
+        <style data-tag="reset-style-sheet">
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      html { scroll-behavior: smooth  }
+      </style>
+      <link href="./CSS/BMI-Calculator.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+    </head>
+
+    <body>
+        <div id="overlay" class="overlay">
+            <div class="loader"></div>
+        </div> 
+
+        <div>
+            <div id="Frame" class="main-container">
+                <div id="Main-container" class="inner-container">
+                    <img alt="image" src="./public/BMI image.jpg" id="BG-image" class="image-container">
+                    <!--<div id="BMI-info" class="BMI-info-container">
+                        <h1 id="BMI-info-heading" class="BMI-heading">Your BMI&nbsp;</h1>
+                        <p id="BMI-info-text" class="BMI-caption">
+                            BMI is your weight's tango with your height, giving a hint about
+              body fat content. This handy metric can be a starting point to
+              assess if you're in a healthy weight range.</p>
+              </div>-->
+              </div>
+              <div id="outer-calculator-container" class="BMI-form-container">
+
+                <form id="bmi-form" class="BMI-Form">
+                    <h2 id="Age" class="Age-header">Age</h2>
+                    <select id="select-age" size="0" autocomplete="on" class="Select-Age" required>
+                        <option value="select the age">Select Age</option>
+                        <option value="Teens">13 to 19</option>
+                        <option value="Young Adult">20 to 29</option>
+                        <option value="Adulthood">30 to 49</option>
+                        <option value="Senior Citizen">50 or above</option>
+                    </select>
+                    
+                        <h2 id="gender" class="Gender-header"><span>Gender</span><br /></h2>
+                        <input type="radio" name="gender" id="Male" value ="Male" class="Male-RB" required>
+                        <input type="radio" name="gender" id="Female" value ="Female" class="Female-RB">
+                        <p id="Male-text" class="Male-Caption">Male</p>
+                        <p id="Female text" class="Female-caption">Female</p>
+
+                        <h2 id="Height" class="Height-header">Height</h2>
+                        <select id="Weight-metrics" class="Select-weight-metrics" required>
+                            <option value="Select">Metrics</option>
+                            <option value="pounds">(lb)</option>
+                            <option value="kilograms">(kg)</option>
+                            <option value="Grams">(g)</option>
+                        </select>
+                            <h2 id="Weight" class="weight-header">Weight</h2>
+                            <input type="text" placeholder="Enter Height" id="Height-txt" class="input" required>
+                            <input type="text" placeholder="Enter Weight" id="Weight-txt" class="main-textinput1 input" required>
+
+                            <input type="hidden" id="current-user-id" value="">
+
+                            <select id="Height-metrics" class="Select-height-metrics" required>
+                                <option value="Select">Metrics</option>
+                                <option value="centimeters">(cm)</option>
+                                <option value="inches">(inch)</option>
+                                <option value="feet">(ft)</option>
+                            </select>
+
+            <button type="submit" id="Calculate-Button" class="main-button button">Calculate</button>
+                                </form>
+                                 </div>
+                           </div>
+                      </div>
+
+                      <script>
+                        document.addEventListener('DOMContentLoaded', (event) => {
+                            document.getElementById('bmi-form').addEventListener('submit', function(event) {
+                                event.preventDefault(); // Prevent default form submission
+                                calculateBMI(); // Call the calculateBMI function
+                            });
+                        });
+                    
+                        function calculateBMI() {
+                            const age = document.getElementById('select-age').value;
+                            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                            let height = parseFloat(document.getElementById('Height-txt').value);
+                            const heightMetric = document.getElementById('Height-metrics').value;
+                            let weight = parseFloat(document.getElementById('Weight-txt').value);
+                            const weightMetric = document.getElementById('Weight-metrics').value;
+                    
+                            // Validations
+                            if (!age || !gender || !height || isNaN(height) || !weight || isNaN(weight) || heightMetric === 'Select' || weightMetric === 'Select') {
+                                Swal.fire({
+                        
+                                    title: "Oops...",
+                                    text: "Please fill all the fields correctly."
+                                });
+                                return false;
+                            }
+                    
+                            // Convert measurements according to the selected metric
+                            switch (heightMetric) {
+                                case 'inches':
+                                    height *= 2.54;
+                                    break;
+                                case 'feet':
+                                    height *= 30.48;
+                                    break;
+                                // Default case for centimeters, no conversion needed
+                            }
+                    
+                            switch (weightMetric) {
+                                case 'pounds':
+                                    weight *= 0.453592;
+                                    break;
+                                case 'grams':
+                                    weight /= 1000;
+                                    break;
+                                // Default case for kilograms, no conversion needed
+                            }
+                    
+                            // Validate realistic height range in centimeters
+                            if (height < 118 || height > 240) {
+                                Swal.fire({
+                                    title: "Error",
+                                    text: "Please enter a realistic height between 3.9 ft (118 cm) and 7.9 ft (240 cm)."
+                                });
+                                return false;
+                            }
+                    
+                            // Validate realistic weight range in kilograms
+                            if (weight < 23 || weight > 272) {
+                                Swal.fire({
+                                    title: "Error",
+                                    text: "Please enter a realistic weight between 50 lb (23 kg) and 600 lb (272 kg)."
+                                });
+                                return false;
+                            }
+                    
+                            const bmi = weight / ((height / 100) ** 2); // BMI calculation
+                    
+                            // Check for NaN
+                            if (isNaN(bmi)) {
+                                alert("BMI calculation failed, please check your inputs.");
+                                return;
+                            }
+
+                            // Retrieve the user_id from a cookie or session storage
+                            const userId = document.cookie.match(/user_id=([^;]*)/)?.[1] || sessionStorage.getItem('user_id');
+                    
+                            if (!userId) {
+                            Swal.fire({
+                                title: "Error",
+                                text: "User ID not found. Please try again later or register.",
+                                showCancelButton: true, 
+                                confirmButtonText: "Register", 
+                                cancelButtonText: "Try Again" 
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = './Register.html'; // Redirect to the registration page
+                                }
+                            });
+                            return;
+                        }
+                            const postData = {
+                                age,
+                                gender,
+                                height: height.toFixed(2), // Store converted height
+                                weight: weight.toFixed(2),  // Store converted weight
+                                bmi: bmi.toFixed(2),         // Store calculated BMI
+                                user_id: userId
+                            };
+
+                            // Show the loader and blurred background
+                            const overlay = document.getElementById('overlay');
+                            overlay.style.visibility = 'visible';
+                            document.body.classList.add('blurred');
+                                                
+                                    
+                         // Send data to server using Fetch API
+                        fetch('/calculate-bmi', {
+                            method: 'POST', // Specify that this is a POST request, which is used to send data to the server
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(postData)
+                        })
+                        .then(response => response.json()) // Parse the JSON response from the server
+                        .then(() => {
+                            setTimeout(() => {
+                                window.location.href = `./BMI-Result.html?bmi=${encodeURIComponent(bmi.toFixed(2))}&user_id=${encodeURIComponent(userId)}&gender=${encodeURIComponent(gender)}`;
+                            }, 1500); // 1.5 seconds delay
+                        })
+                        .catch(error => console.error('Error:', error));
+                                }
+                    </script>
+                             
+            </body>
+ </html>

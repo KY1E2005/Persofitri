@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>index</title>
+    <meta property="og:title" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta property="twitter:card" content="summary_large_image">
+    <script src="sweetalert.js"></script>
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}
+      body {  margin: 0;}
+      * {  box-sizing: border-box;  border-width: 0;  border-style: solid;}
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button {  background-color: transparent;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      html { scroll-behavior: smooth  }
+      </style>
+
+      <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+      </style>
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
+    </head>
+
+    <body >
+        
+        <div>
+            <link href="./CSS/index.css" rel="stylesheet">
+            <div id="Frame" class="index-container">
+                <div id="first-main-container" class="video-container">
+                    <video src="./public/Website media.mov" loop="" muted="" preload="auto" autoplay="" playsinline="" id="Video" class="Home-video">
+                        </video>
+                        <header data-thq="thq-navbar" class="Nav-Bar">
+                            <img id="HeaderLogo" alt="image" src="./public/logo-removebg.png" class="header-logo">
+                            <a href="#first-main-container"><p id="Homelink" class="Home-Nav">Home</p></a>
+                            <a href="#AboutUs">
+                                <p id="AboutUslink" class="About-us-Nav">About Us</p></a>
+                                <a href="#Services Container">
+                                    <p id="Serviceslink" class="Services-Nav">Services</p></a>
+                                    <a href="#Main Footer">
+                                        <p id="Contactlink" class="Contact-Nav">Contact</p></a>
+                                        <svg id="Account Icon" viewBox="0 0 1024 1024" class="Account-Icon" onclick="account()">
+              <path d="M256 726v42h512v-42q0-58-88-95t-168-37-168 37-88 95zM640 384q0-52-38-90t-90-38-90 38-38 90 38 90 90 38 90-38 38-90zM128 214q0-36 25-61t61-25h596q34 0 60 26t26 60v596q0 34-26 60t-60 26h-596q-36 0-61-25t-25-61v-596z">
+              </path></svg>
+
+              <script>
+                function account() {
+                Swal.fire({
+                    title: "Select an Option:",
+                    confirmButtonColor: "#3085d6", // Blue
+                    cancelButtonColor: "#3bb507", // Green
+                    confirmButtonText: "Login",
+                    showCancelButton: true, // Display both buttons
+                    cancelButtonText: "Register",
+                   
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    // Redirect to Login Page on confirmation
+                    window.location.href = "log-in.html"; 
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Redirect to Register Page on cancellation
+                    window.location.href = "Register.html"; 
+                    }
+                });
+                }
+              </script>
+
+              <div id="BurgerMenu-container" class="index-container1">
+                <div data-thq="thq-burger-menu" class="index-burger-menu">
+                    <div id="Burger-container" class="Burger-container">
+                        <svg viewBox="0 0 1024 1024" id="Burger-Icon" class="Burger-Icon">
+                    <path d="M64 192h896v192h-896zM64 448h896v192h-896zM64 704h896v192h-896z"></path>
+                </svg>
+            </div>
+        </div>
+        </div>
+        <div data-thq="thq-mobile-menu" class="Mobile-Menu-Nav">
+            <div data-thq="thq-mobile-menu-nav" data-role="Nav"class="Mobile-Menu-Main-Container">
+                <div id="MobileMenu-Heading" class="Mobile-Menu-Header">
+                    <div data-thq="thq-close-menu" class="index-menu-close">
+                        <svg id="x Icon" viewBox="0 0 1024 1024" class="index-icon03">
+                      <path d="M225.835 286.165l225.835 225.835-225.835 225.835c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.835-225.835 225.835 225.835c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331l-225.835-225.835 225.835-225.835c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.835 225.835-225.835-225.835c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
+                    </svg>
+                    </div>
+                    <h1 class="index-text04">Persofitri</h1>
+                </div>
+                    <nav data-thq="thq-mobile-menu-nav-links" data-role="Nav" class="Mobile-Menu-NavOptions">
+                        <p id="Home(Mobile)" class="Home-text-Mobile">Home</p>
+                        <p id="AboutUs(Mobile)" class="AboutUs-Text_Mobile">About Us</p>
+                            <p id="Services(Mobile)" class="Services-Text-Mobile">Services</p>
+                            <p id="Contact(Mobile)" class="Contact-Text_-Mobile">Contact</p>
+                            </nav>
+                            <div class="index-account-container">
+                                <button id="Login Mobile Button" class="index-login button" onclick = "goTo_Login_Page()">Login</button>
+                                <button id="Register Mobile Button" class="button index-register" onclick="goTo_Register_Page()">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                </header>
+                                <h1 id="HomeHeading" class="Home-Header"><span>The Only Guide that you Deserve</span>
+                                    <br /></h1>
+                                    <div id="Button-container" class="Button-container">
+                                        
+                                        
+                                        <button id="GetStartedBtn1" class="index-button button" onclick="goTo_Register_Page()">
+                                            <p id="Button Text" class="GetStartedBtn1-Text"><span>Get started today</span>
+                                                </p>
+                                            </button>
+                                        </div>
+                                        <script>
+                                            function goTo_Register_Page() {
+                                         window.location.href = "Register.html";
+                                               }
+                                        </script>
+
+                                        <script>
+                                            function goTo_Login_Page() {
+                                                window.location.href = "log-in.html";
+                                            }
+                                        </script>
+                                    </div>
+
+                                    <section id="Statistics Container" class="statistics-container">
+                                        <div id="Statistics Content" class="statistics-content">
+                                            <div id="Stat1" class="Stat-1">
+                                                <h3 id="Stat1-header" class="Stat1Header">5000</h3>
+                                                <p id="Stat1-text" class="Stat1-txt">Active Users</p>
+                                                </div>
+                                                <div id="Stat2" class="Stat2">
+                                                    <h3 id="Stat2-header" class="index-header01">Free</h3>
+                                                    <p id="Stat2-text" class="Stat2-txt">Online Platform</p>
+                                                </div>
+                                                <div id="Stat3" class="Stat-3">
+                                                    <h3 id="Stat3-header" class="index-header02">215</h3>
+                                                    <p id="Stat3-text" class="Stat3-txt">Weekly Users</p>
+                                                    </div>
+                                                </div>
+                                        </section>
+
+                                                    <section id="AboutUs" class="AboutUs-Header-Container">
+                                                        <div class="index-header03">
+                                                            <h2 id="AboutUs Heading" class="AboutUs-Header"><span>Where Fitness and Nutrition</span>
+                                                                <br /><span>is now a LifeStyle!</span><br /></h2>
+                                                            </div>
+                                                        </section>
+
+                        <section id="AboutUsSection1" class="AboutUs-Section-Container">
+                            <div class="index-header-container">
+                                <div id="AboutUs-text container" class="AboutUs-text-container">
+                                    <h2 id="AboutUs txt1" class="AboutUs-text1">At Persofitri, we believe that achieving your health and
+                fitness goals is a deeply personal journey, one that requires a
+                unique blend of guidance, motivation, and science-backed
+                insights. </h2>
+                <p id="AboutUs-text-2" class="AboutUs-text2">We are committed to providing an enriching experience that not
+                only helps you achieve your health and fitness goals but also
+                inspires a lifelong commitment to wellness.</p>
+                </div>
+            </div>
+                <img id="GetStartedImg" alt="image" src="./public/AboutUs.png" class="AboutUs-image" />
+            </section>
+
+                <section id="GrowthContainer" class="growth-container">
+                    <div id="Growth Content" class="Growth-content-container">
+                        <div id="Growth-content1" class="Growth-content1">
+                            <div class="index-header06">
+                                <h2 id="Growth Heading" class="Growth-header">
+                                    <span>A Multiverse of&nbsp;</span>
+                                    <span class="index-text19">growth.</span><br /></h2>
+                                </div>
+                                    <p id="Growth text1" class="Growth-text-1">Your wellness journey should be as unique as you are.</p>
+                                    <p id="Growth text2" class="Growth-text-2">Whether you're looking to lose weight, gain muscle, or simply
+                maintain a healthy lifestyle, our dynamic platform evolves with
+                you, ensuring your plan stays aligned with your evolving
+                goals.</p>
+                </div>
+                <div id="Testimonial Container" class="Testimonial-container">
+                    <div id="Testimonial content" class="Testimonial-content">
+                        <span class="index-text21">Testimonial</span>
+                        <p id="testimony" class="Testimony-text">"Persofitri isn’t just a tool; it’s become my daily companion
+                  on the road to wellness. For anyone looking to make a real
+                  change, Persofitri is the place to start."</p>
+                  </div>
+                  <div class="index-information">
+                    <div class="index-author">
+                        <img id="testimonial pic" alt="image" src="./public/guy photo.jpg" class="testimony-Pic">
+                        <p id="Testimony Name" class="testimony-name">Jake Zyrus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="index-images">
+            <div id="Growth square1" class="Growth-Square-1"></div>
+            <div id="Growth square 2" class="Growth-square-2"></div>
+            <img id="Growth image" alt="image" src="./public/Growth image.jpeg" class="Growth-Image">
+        </div>
+    </section>
+
+            <section id="Services Container" class="Services-container">
+                <div class="index-images1">
+                    <div id="Blue Square" class="Services-blue-square"></div>
+                    <img id="Services img" alt="image" src="./public/Service Image.jpg" class="Services-image">
+                    </div>
+                    <div id="Services Content" class="index-content3">
+                        <div id="Services-texts" class="Services-Captions">
+                            <div class="index-header-container1">
+                                <div class="index-header08">
+                                    <h2 id="Services Heading" class="Services-header">Services offered by Persofitri</h2>
+                                    </div>
+                                    <p id="Services text" class="Services-text">Our platform combines cutting-edge technology with expert
+                  insights to offer you personalized solutions that help you
+                  achieve and maintain your health and fitness goals.</p>
+                  </div>
+                  <div id="Checkmarks" class="Services-chekmarks">
+                    <div class="index-check">
+                        <div class="index-mark">
+                            <svg viewBox="0 0 1024 1024" class="index-icon06">
+                      <path d="M823.168 225.835l-439.168 439.168-183.168-183.168c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c16.683 16.683 43.691 16.683 60.331 0l469.333-469.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z"></path>
+                    </svg>
+                    </div>
+                    <p class="index-text23">BMI Calculator</p>
+                    </div>
+                    <div class="index-check1" ><div class="index-mark1">
+                        <svg viewBox="0 0 1024 1024" class="index-icon08">
+                      <path d="M823.168 225.835l-439.168 439.168-183.168-183.168c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c16.683 16.683 43.691 16.683 60.331 0l469.333-469.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z"></path>
+                    </svg>
+                    </div>
+                    <p class="index-text24" >Personalized Workout Plans</p>
+                    </div>
+                    <div class="index-check2">
+                        <div class="index-mark2">
+                            <svg viewBox="0 0 1024 1024" class="index-icon10">
+                      <path d="M823.168 225.835l-439.168 439.168-183.168-183.168c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c16.683 16.683 43.691 16.683 60.331 0l469.333-469.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z"></path>
+                    </svg>
+                </div>
+                    <p class="index-text25">Personalized Nutritional Guidance</p>
+                </div>
+                    <div class="index-check3">
+                        <div class="index-mark3">
+                            <svg viewBox="0 0 1024 1024" class="index-icon12">
+                      <path d="M823.168 225.835l-439.168 439.168-183.168-183.168c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c16.683 16.683 43.691 16.683 60.331 0l469.333-469.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z"></path>
+                    </svg></div>
+                    <p class="index-text26">Excercise Libraries</p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+
+                    <div id="Hot Line Container" class="HotLine-container">
+                        <h2 id="Hot Line text" class="Hot-line-heading">24/7 Hotline Support</h2>
+                        <svg id="hot line icon" viewBox="0 0 1024 1024"class="Hot-line-icon">
+            <path d="M854 656q18 0 30 12t12 30v148q0 50-42 50-298 0-512-214t-214-512q0-42 50-42h148q18 0 30 12t12 30q0 78 24 150 8 26-10 44l-82 72q92 192 294 290l66-84q12-12 30-12 10 0 14 2 72 24 150 24z"></path>
+        </svg>
+    </div>
+
+        <section id="Reviews Container" class="Reviews-Container">
+            <div id="Reviews Content" class="Reviews-content">
+                <div id="Review 1" class="Review-1">
+                    <h1 id="reviewer 1" class="Reviewer-1">
+                        <span>Jake Emerson</span><br /></h1>
+                        <svg viewBox="0 0 1024 1024" class="index-icon16">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon18">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon20">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon22">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon24">
+                <path d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
+                </svg>
+                <p id="reviewer 1 text" class="Reviewer1-text">"Persofitri shines with its intuitive design and user-friendly
+                interface. The simplicity with which one can start and adhere to
+                a personalized health regimen is commendable."</p>
+                </div>
+                <div id="Review 2" class="Review-2">
+                    <h1 id="reviewer 2" class="Reviewer-2">Bob Wonder</h1>
+                    <svg viewBox="0 0 1024 1024" class="index-icon26">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon28">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon30">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon32">
+                <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                </svg>
+                <svg viewBox="0 0 1024 1024" class="index-icon34">
+                <path d="M512 658l160 96-42-182 142-124-188-16-72-172v398zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
+                </svg>
+                <p id="reviewer 2 text" class="reviewer2-text">"Persofitri is a robust platform that delivers on its promise
+                of personalized fitness and nutritional guidance.&nbsp;As
+                Persofitri continues to grow and refine its offerings, it has
+                the potential to become an indispensable tool for anyone looking
+                to achieve their health and fitness goals. "</p>
+                </div>
+                </div>
+                </section>
+
+                <div id="Review Img Container" class="Review-img-container">
+                    <img id="img 1" alt="image" src="./public/forbes.png"class="ReviewImg1">
+                    <img id="img 2" alt="image" src="./public/wired.png" class="ReviewImg2">
+                    <img id="img 3" alt="image" src="./public/business_insider.png" class="ReviewImg3">
+                    <img id="img 4" alt="image" src="./public/CBS.png" class="ReviewImg4">
+                </div>
+
+                    <section id="JoinNow Container" class="Join-Now-Container">
+                        <div id="JoinNow Content" class="Join-Now-Content">
+                            <div class="index-header09">
+                                <h2 id="Join Now header" class="Join-Now-Header"><span>Join Persofitri</span><span>&nbsp;now!</span>
+                                    <br /></h2>
+                                    </div>
+
+                                    <button id="GetStartedBtn2" class="index-button2 button" onclick="goTo_Register_Page()">
+                                        <span id="Get Started btn2 txt" class="GetStartedBtn2-text">
+                                            <span>Get started today</span><br /></span></button>
+                                        
+                                        </div>
+                                    </section>
+
+                                        <div class="index-footer"></div>
+                                        <div class="index-container4">
+                                            <div class="index-container5">
+        <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                // get the element with the 'scroll-top' data-role
+                const scrollTopBtn = document.querySelector("[data-role='scroll-top']");
+
+                // when the element is clicked
+                scrollTopBtn.addEventListener('click', function() {
+                  // smoothly scroll to the top of the page
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                });
+              });
+            </script>
+
+          </div>
+          </div>
+          <footer id="Main Footer" class="Main-footer-container">
+            <div id="footer content" class="Footer-content">
+                <div id="Footer Logo container" class="Footer-Logo-container">
+                    <img id="footer logo" alt="image" src="./public/logo-removebg.png" class="Footer-logo-image">
+                    </div>
+                    <div id="Contact Us" class="Contact-Us-Container">
+                        <h1 class="index-text40">Contact us at</h1>
+                        <p class="index-text41">Telephone:&nbsp;+971-50-820-8452</p>
+                        <p class="index-text42">Mail: Persofitri@yahoo.com</p>
+                    </div>
+                        </div>
+                        <div id="footer seperator" class="Footer-horizontal-Line"></div>
+                        <p id="end credit footer" class="End-credit-footer">© 2024 Persofitri, All Rights Reserved.</p>
+                        </footer>
+                    </div>
+                </div>
+    </body>
+</html>

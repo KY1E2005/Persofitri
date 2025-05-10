@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Personalized Programs</title>
+        <meta property="og:title" content="Personalized Programs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta property="twitter:card" content="summary_large_image">
+        <script src="sweetalert.js"></script>
+
+        <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}
+      body {  margin: 0;}
+      * {  box-sizing: border-box;  border-width: 0;  border-style: solid;}
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button {  background-color: transparent;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      html { scroll-behavior: smooth  }
+      </style>
+
+      <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+      </style>
+      <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css">
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+    </head>
+    <body>
+        
+        <div>
+            <link href="./CSS/Personalized Programs.css" rel="stylesheet">
+            <div class="main-container">
+                <header id="main header container" class="Underweight-Header-Container">
+                    <img id="image logo" alt="image" src="./public/logo-removebg.png" class="Logo-img" onclick="account()">
+                    <div id="account-container" class="Account-container">
+                        <h3 id="welcome-user-header" class="Welcome-header">Welcome User</h3>
+                        <p id="Health Classification" class="Underweight-Health-Color">Underweight</p>
+              </div>
+              </header>
+
+              <script>
+                function account() {
+                    Swal.fire({
+                        title: "Want to go back to Homepage?",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "Go Back Home",
+                        showCancelButton: true,
+                        cancelButtonText: "Cancel",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "index.html";
+                        }
+                    });
+                }
+        
+                wwindow.onload = function() {
+                const params = new URLSearchParams(window.location.search);
+                console.log(params); // Add this line to log the params object
+                const userId = params.get('user_id');
+
+                if (!userId) {
+                console.error("User ID is missing or undefined.");
+                return;
+            }
+
+            const Welcome = document.getElementById('welcome-user-header');
+
+                // Fetch user name from server using user ID
+                fetch(`/get-user-name?user_id=${userId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.name) {
+                           Welcome.textContent = `Welcome ${data.name}`;
+                        } else {
+                            console.error('Invalid data format:', data);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching user name:', error));
+        };
+            </script>
+
+              <div id="Button Container" class="Main-Button-Container">
+                <button id="fitness button" type="button" class="button Fitness-Button">Fitness</button>
+                <a href="#Nutrition main header" id="Nutrition Button" class="main-link button Nutrition-Button">
+                    <p id="Btn-txt">Nutrition<br /></p></a>
+                    </div>
+                    <section id="Fitness Container" class="Fitness-Section">
+                        <div id="fitness-header-container" class="Fitness-Header-Container">
+                            <h1 id="Fitness Heading 1" class="Fitness-heading-1">Recommended Video Demos</h1>
+                            </div>
+                            <div id="Outer Videos container" class="Main-Video-Container">
+                                <div id="Inner Videos Container" class="Inner-video-container">
+                                    <iframe id="iFrame 1" class="main-iframe" src="https://www.youtube.com/embed/03p2g6mYunk?si=pZjbAS0yOhJMry6_" ></iframe>
+                                    <iframe id="iFrame 2" class="main-iframe1" src="https://www.youtube.com/embed/t7MzNN29u-Y?si=gIycpwkjRBmoGuCy"></iframe>
+                                    <iframe id="iFrame 3" class="main-iframe2" src="https://www.youtube.com/embed/scZFlj11eck?si=iNb7tFJ6FeDStWJI" ></iframe>
+                                    <iframe id="iFrame 4" class="main-iframe3" src="https://www.youtube.com/embed/QF0BQS2W80k?si=3RTQPFGxWvmt6eHD"></iframe>
+                                    <iframe id="iFrame 5" class="main-iframe4" src="https://www.youtube.com/embed/VxAahrUvR4M?si=CChbr6jUNr_8q81_"></iframe>
+                                    <iframe id="iFrame 6" class="main-iframe5" src="https://www.youtube.com/embed/HIpIN84uIRo?si=8RY4nsbHzHH_q-n6"></iframe>
+                                </div>
+                            </div>
+                                <div id="tips container" class="Fitness-tips-container"><p class="Tips-text">Strength training is key to 
+                                    building muscle and increasing weight in a healthy way. Aim for 2-4 sessions per week, 
+                                    targeting all major muscle groups. Gradually increase weight, sets, or reps over time as you get 
+                                    stronger to keep challenging your muscles and promote growth. 
+                                    Proper form is crucial to maximize benefits and prevent injury.
+                                    
+                                </p>
+                                    </div>
+                                    <div class="main-container09 Fitness-header-container-2">
+                                        <h1 id="Fitness-header-2" class="main-text09 fitness-header-2">Physical Activites</h1>
+                                        </div>
+                                        <div id="outer Activity container" class="Main-Activities-container">
+                                            <div id="inner activities container" class="Inner-Activity-container">
+                                                <a href= "https://blog.decathlon.in/articles/6-things-that-happen-to-your-body-if-you-do-a-brisk-walk">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Brisk-Walking.jpg" id="Meal img 1">
+                                                        <div class="card__content">
+                                                          <p class="card__title">Brisk Walking</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://adoebike.vn/en/blogs/news/nguoi-gay-co-nen-di-xe-dap-de-tang-can-khong">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/women cycling.jpeg" id="Meal img 1">
+                                                        <div class="card__content">
+                                                          <p class="card__title">Cycling</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://www.healthline.com/health/exercise-to-gain-weight#:~:text=Bench%20press&text=Bench%20presses%20help%20build%20shoulder,of%20a%20spotter%20for%20safety.">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Weight class.jpg" id="Meal img 1">
+                                                        <div class="card__content">
+                                                          <p class="card__title">Weight Training</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://blog.myswimpro.com/2022/08/08/can-swimming-make-you-gain-weight/#:~:text=When%20you%20start%20swimming%20regularly%2C%20you'll%20build%20muscle%20in,body%20fat%20and%20gain%20muscle.">
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Swimming3.jpg" id="Meal img 1">
+                                                        <div class="card__content">
+                                                          <p class="card__title">Swimming</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                
+                                            </div>
+                                        </div>
+                                </section>
+                                        <div id="Nutrition main header" class="Nutrition-main-container">
+                                    <h1 id="Nutrition section header" class="Main-Nutrition-header">Nutrition</h1>
+                                    </div>
+                                    
+            <section id="nutrition section" class="Nutrition-Section">
+                <div class="Nurition-reccomendation-container">
+                    <h1 id="nutrition recommendation header" class="Nutrition-header-1">Nutrition Recommendation</h1>
+                    </div>
+                    <div id="outer recommendation container" class="Main-Recommendation-container">
+                        <div id="inner container layer 1" class="Inner-recommendation-container">
+                            <div class="main-container17"><p class="Nutrition-text"></p><h3>Focus on Calorie Surplus and Muscle Building:</h3></br>- Aim to consume more calories than you burn each day to promote healthy weight gain.</br>  This may require a shift in mindset and eating habits.</div>
+                            <div class="main-container18"><p class="Nutrition-text"></p><h3>Macronutrients:</h3></br>- Continue prioritizing complex carbohydrates but can increase overall intake slightly.</br>- Include healthy fats in moderation.</br>- Fruits and Vegetables: Provide essential vitamins, minerals, and fiber. Aim for at least 5 servings per day.</div>
+                            <div class="main-container19"><p class="Nutrition-text"></p><h3>Frequent Meals and Snacks:</h3></br>- Ensure adequate intake of essential vitamins and minerals, especially those often deficient in underweight</br> individuals like iron, calcium, and vitamin D.</div>
+                            <div class="main-container20"><p class="Nutrition-text"></p><h3>High-Calorie, Nutrient-Dense Options:</h3></br>- Dried fruits and nuts for a portable and energy-boosting snack.</br>- Full-fat dairy products like milk and yogurt.</div>
+                        </div>
+                    </div>
+                        <div id="meal plan header container" class="Meal-plan-header-container">
+                            <h1 id="Meal plan header" class="Nutrition-header-2">Recommended Meal Plans</h1>
+                            </div>
+                            <div id="outer meal plan container" class="Main-mealPlan-container">
+                                <div id="inner meal Plan container" class="inner-mealPlan-container">
+
+                                  <a href="https://www.allrecipes.com/recipe/282273/fruit-topped-whole-wheat-pancakes/">
+                                    <div class="card">
+                                        <img alt="image" src="./public/Whole wheat Pancakes.jpg" id="Meal img 1">
+                                        <div class="card__content">
+                                          <p class="card__title">Whole-wheat Pancakes with Fruits.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                  <a href="https://www.ricardocuisine.com/en/recipes/8326-quinoa-with-grilled-vegetables-and-tofu">                                      <div class="card">
+                                        <img alt="image" src="./public/quinoa Bowl.jpg" id="Meal img 1">
+                                        <div class="card__content">
+                                          <p class="card__title">Quinoa Bowl with Grilled Vegetables and Tofu.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                  <a href="https://www.thehealthymaven.com/how-to-build-a-healthy-trail-mix/">
+                                      <div class="card">
+                                        <img alt="image" src="./public/Trail Mix.jpg" id="Meal img 1">
+                                        <div class="card__content">
+                                          <p class="card__title">Trail mix with Nuts.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+                                  
+                                  <a href="https://skinnyms.com/chicken-stir-fry-with-vegetables-and-brown-rice-recipe/">
+                                      <div class="card">
+                                        <img alt="image" src="./public/chicken stir fry.jpg" id="Meal img 1">
+                                        <div class="card__content">
+                                          <p class="card__title">Chicken stir-fry with Brown rice and Mixed vegetables.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                </div>
+                            </div>
+                    </section>
+
+                    <footer id="Footer Container" class="main-container24 Main-Footer">
+                        <div class="main-container25">
+                            <p id="logo Name" class="main-logo logo Company-Name-footer">Persofitri</p>
+                            </div>
+                            <div id="footer seperator" class="Footer-Seperator"></div>
+                            <p id="end credits" class="main-text13 bodySmall end-credits-footer">© 2024 Persofitri, All Rights Reserved.</p>
+                    </footer>
+                    </div>
+                </div>
+  </body>
+</html>

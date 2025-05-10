@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
+:root {
+    --dl-size-size-large: 144px;
+    --dl-size-size-small: 48px;
+    --dl-color-gray-white: #FFFFFF;
+    --dl-size-size-medium: 96px;
+    --dl-size-size-xlarge: 192px;
+    --dl-size-size-xsmall: 16px;
+    --dl-space-space-unit: 16px;
+    --dl-size-size-xxlarge: 288px;
+    --dl-size-size-maxwidth: 1400px;
+    --dl-radius-radius-round: 50%;
+    --dl-space-space-halfunit: 8px;
+    --dl-space-space-sixunits: 96px;
+    --dl-space-space-twounits: 32px;
+    --dl-radius-radius-radius2: 2px;
+    --dl-radius-radius-radius4: 4px;
+    --dl-radius-radius-radius8: 8px;
+    --dl-space-space-fiveunits: 80px;
+    --dl-space-space-fourunits: 64px;
+    --dl-space-space-threeunits: 48px;
+    --dl-space-space-oneandhalfunits: 24px;
+    * {  
+      box-sizing: border-box;  
+      border-width: 0;  
+      border-style: solid;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: "Freeman", sans-serif;
+      box-sizing: border-box;
+    }    
+  }
+  .button {
+    color: var(--dl-color-gray-black);
+    display: inline-block;
+    font-family: inter;
+    letter-spacing: 1.5px;
+    padding: 0.5rem 1rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+    cursor: pointer;
+  }
+  .input {
+    top: 385px;
+    left: 70px;
+    color: var(--dl-color-gray-black);
+    width: 155px;
+    cursor: auto;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+  }
+  .textarea {
+    color: var(--dl-color-gray-black);
+    cursor: auto;
+    padding: 0.5rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+  }
+  .list {
+    width: 100%;
+    margin: 1em 0px 1em 0px;
+    display: block;
+    padding: 0px 0px 0px 1.5rem;
+    list-style-type: none;
+    list-style-position: outside;
+  }
+  .list-item {
+    display: list-item;
+  }
+  .teleport-show {
+    display: flex !important;
+    transform: none !important;
+  }
+  .Main-Container {
+    width: 100%;
+    filter: blur(2px);
+    height: 1000px;
+    display: flex;
+    position: relative;
+    max-width: var(--dl-size-size-maxwidth);
+    max-height: var(--dl-size-size-maxwidth);
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-image: url("public/bmi%20image-1500w.jpg");
+  }
+  .blur-container {
+    top: 150px;
+    flex: 0 0 auto;
+    left: 0px;
+    width: 723px;
+    border: 3px solid rgba(120, 120, 120, 0.4);
+    height: 760px;
+    display: flex;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    margin-left: var(--dl-space-space-unit);
+    border-radius: 17px;
+    backdrop-filter: blur(10.8px);
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10.8px);
+  }
+  .main-content {
+    flex: 0 0 auto;
+    width: 100%;
+    border: 2px dashed rgba(120, 120, 120, 0.4);
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .inner-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-container {
+    width: var(--dl-size-size-maxwidth);
+    height: 100%;
+    object-fit: unset;
+  }
+  .BMI-info-container {
+    top: 400px;
+    flex: 0 0 auto;
+    left: 500px;
+    right: 0px;
+    width: 440px;
+    height: 353px;
+    margin: auto;
+    display: flex;
+    opacity: 0.8;
+    position: absolute;
+    align-items: flex-start;
+    border-color: rgba(120, 120, 120, 0.4);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 0px 0px 84px 84px / 25px 25px 61px 60px;
+    justify-content: center;
+    background-color: #31312F;
+  }
+  .BMI-heading {
+    color: rgb(241, 236, 236);
+    margin-top: var(--dl-space-space-halfunit);
+    font-family: "Arial";
+  }
+  .BMI-caption {
+    top: var(--dl-space-space-sixunits);
+    left: 0px;
+    color: rgb(218, 210, 210);
+    right: 0px;
+    margin: auto;
+    position: absolute;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Fira Sans";
+    line-height: 2;
+    letter-spacing: 2px;
+  }
+  .BMI-caption::selection{
+    color: #410856;
+    background: #60A73C;
+  }
+  .BMI-form-container {
+    top: 100px;
+    left: 0px;
+    right: 0;
+    width: 501px;
+    border: 3px solid rgba(255, 255, 255, 0.09);
+    height: 800px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    border-radius: 17px;
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .BMI-Form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .Age-header {
+    top: 65px;
+    left: 0px;
+    right: 0px;
+    font-weight: 250;
+    position: absolute;
+    font-size: 28px;
+    margin-top: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    text-transform: capitalize;
+  }
+  .Select-Age {
+    top: 140px;
+    left: 0px;
+    right: 0px;
+    width: 150px;
+    margin: auto;
+    padding: 9px;
+    position: absolute;
+    border-color: var(--dl-color-gray-black);
+    border-width: 2px;
+    border-radius: var(--dl-radius-radius-radius8);
+    cursor: pointer;
+  }
+  .Gender-header {
+    top: 220px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    position: absolute;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 250;
+  }
+  .Female-caption {
+    top: 270px;
+    left: 350px;
+    position: absolute;
+    font-size: 22px;
+  }
+  .Height-header {
+    top: 330px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    position: absolute;
+    font-weight: 250;
+    font-size: 28px;
+    text-align: center;
+  }
+  .Select-height-metrics {
+    top: 385px;
+    left: 260px;
+    width: 100px;
+    bottom: 0px;
+    height: 55px;
+    position: absolute;
+    border-color: var(--dl-color-gray-black);
+    border-width: 2px;
+    border-radius: var(--dl-radius-radius-radius8);
+    cursor: pointer;
+  }
+  .Select-weight-metrics {
+    top: 530px;
+    left: 260px;
+    right: 0px;
+    width: 100px;
+    bottom: 0px;
+    height: 55px;
+    position: absolute;
+    border-color: var(--dl-color-gray-black);
+    border-width: 2px;
+    border-radius: var(--dl-radius-radius-radius8);
+    cursor: pointer;
+  }
+  .Male-Caption {
+    top: 270px;
+    left: 101px;
+    position: absolute;
+    font-size: 22px;
+  }
+  .Male-RB {
+    top: 270px;
+    left: 150px;
+    width: var(--dl-size-size-small);
+    height: 30px;
+    margin: auto;
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+  }
+  .Female-RB {
+    top: 270px;
+    left: 300px;
+    width: var(--dl-size-size-small);
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    color:#fff;
+  }
+  .weight-header {
+    left: 0px;
+    right: 0px;
+    bottom: 290px;
+    margin: auto;
+    position: absolute;
+    font-size: 28px;
+    font-weight: 250;
+    text-align: center;
+  }
+  .Heading {
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .Content {
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 1.15;
+    text-transform: none;
+    text-decoration: none;
+  }
+  @media(max-width: 1200px) {
+    .BMI-form-container {
+      left: 20px;
+    }
+  }
+  @media(max-width: 991px) {
+    .input {
+      top: 350px;
+      width: 145px;
+      height: 40px;
+    }
+    .BMI-info-container {
+      left: 460px;
+      width: 380px;
+    }
+    .BMI-form-container {
+      height: 691px;
+    }
+    .Age-header {
+      font-size: 20px;
+    }
+    .Select-Age {
+      top: 100px;
+      width: 130px;
+    }
+    .Gender-header {
+      top: 200px;
+      font-size: 20px;
+    }
+    .Female-caption {
+      top: 239px;
+      font-size: 17px;
+    }
+    .Height-header {
+      top: 300px;
+      font-size: 20px;
+    }
+    .Select-height-metrics {
+      top: 350px;
+      height: 40px;
+    }
+    .Select-weight-metrics {
+      top: 490px;
+      height: 40px;
+    }
+    .Male-Caption {
+      top: 239px;
+      font-size: 17px;
+    }
+    .Male-RB {
+      top: 239px;
+    }
+    .Female-RB {
+      top: 239px;
+    }
+    .weight-header {
+      top: 230px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      height: 30px;
+      margin: auto;
+      font-size: 20px;
+    }
+  }
+  @media(max-width: 767px) {
+    .input {
+      top: 290px;
+      left: 50px;
+      width: 127px;
+      height: 25px;
+    }
+    .image-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    .BMI-info-container {
+      top: 200px;
+      left: 350px;
+      width: 250px;
+      height: 430px;
+    }
+    .BMI-caption {
+      top: var(--dl-space-space-threeunits);
+    }
+    .BMI-form-container {
+      width: 344px;
+      height: 580px;
+    }
+    .Age-header {
+      top: 20px;
+    }
+    .Select-Age {
+      top: 60px;
+    }
+    .Gender-header {
+      top: 150px;
+    }
+    .Female-caption {
+      top: 190px;
+      left: 220px;
+    }
+    .Height-header {
+      top: 250px;
+    }
+    .Select-height-metrics {
+      top: 290px;
+      left: 200px;
+      height: 25px;
+    }
+    .Select-weight-metrics {
+      top: 410px;
+      left: 202px;
+      height: 25px;
+    }
+    .Male-Caption {
+      top: 190px;
+      left: 80px;
+    }
+    .Male-RB {
+      top: 190px;
+      left: 115px;
+      height: 20px;
+    }
+    .Female-RB {
+      top: 190px;
+      left: 170px;
+      height: 20px;
+    }
+    .weight-header {
+      top: 180px;
+    }
+  }
+  @media(max-width: 479px) {
+    .image-container {
+      overflow: unset;
+    }
+    .BMI-info-container {
+      display: none;
+    }
+    .BMI-form-container {
+      left: 0px;
+      right: 0px;
+      margin: auto;
+    }
+  }
+
+  .main-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .main-textinput1 {
+    top: 530px;
+    left: 70px;
+    width: 155px;
+    bottom: 0px;
+    height: 55px;
+    position: absolute;
+  }
+  .main-button {
+    top: 600px;
+    width: 160px;
+    bottom: 0px;
+    height: 50px;
+    margin: auto;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background-color: rgb(0 107 179);
+    border-radius: 9999px;
+    cursor: pointer;
+    color: #ffff;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+  }
+  .main-button:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+  }
+  .main-button:hover::before {
+    animation: shine 1.5s ease-out infinite;
+  }
+  .main-button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100px;
+    }
+  
+    60% {
+      left: 100%;
+    }
+  
+    to {
+      left: 100%;
+    }
+  }
+
+  .loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 40px;
+    background: linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}
+.loader::before {
+    content: "Calculating...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg,#fff 50%,#000 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+@keyframes l21 {
+    100% {
+        background-position: left;
+    }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  visibility: hidden;
+}
+/* Blur the content behind the overlay */
+body.blurred .home-container, body.blurred .inner-container {
+  filter: blur(5px);
+}
+
+  @media(max-width: 991px) {
+    .main-textinput1 {
+      top: 490px;
+      width: 145px;
+      height: 40px;
+    }
+    .main-button {
+      top: 570px;
+      width: 150px;
+      height: 45px;
+    }
+  }
+  @media(max-width: 767px) {
+    .main-textinput1 {
+      top: 410px;
+      left: 50px;
+      width: 129px;
+      height: 25px;
+    }
+    .main-button {
+      top: 460px;
+    }
+  }
+  

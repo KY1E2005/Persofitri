@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Personalized Programs</title>
+        <meta property="og:title" content="Personalized Programs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta property="twitter:card" content="summary_large_image">
+        <script src="sweetalert.js"></script>
+
+        <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}
+      body {  margin: 0;}
+      * {  box-sizing: border-box;  border-width: 0;  border-style: solid;}
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}
+      button {  background-color: transparent;}
+      button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}
+      button,select {  text-transform: none;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}
+      input {  padding: 2px 4px;}
+      img {  display: block;}
+      html { scroll-behavior: smooth  }
+      </style>
+
+      <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+      </style>
+      <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font">
+      <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css">
+      <link rel="shortcut icon" href="public/favicon.ico" type="icon/png" sizes="32x32">
+    </head>
+    <body>
+        
+        <div>
+            <link href="./CSS/Personalized Programs.css" rel="stylesheet">
+            <div class="main-container">
+                <header id="main header container" class="overweight-Header-Container">
+                    <img id="image logo" alt="image" src="./public/logo-removebg.png" class="Logo-img" onclick="account()">
+                    <div id="account-container" class="Account-container">
+                        <h3 id="welcome-user-header" class="Welcome-header">Welcome User</h3>
+              <p id="Health Classification" class="Overweight-Health-Color">Overweight</p>
+              </div>
+              </header>
+
+              <script>
+                function account() {
+                    Swal.fire({
+                        title: "Want to go back to Homepage?",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "Go Back Home",
+                        showCancelButton: true,
+                        cancelButtonText: "Cancel",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "index.html";
+                        }
+                    });
+                }
+        
+                window.onload = function() {
+                const params = new URLSearchParams(window.location.search);
+                console.log(params); // Add this line to log the params object
+                const userId = params.get('user_id');
+
+                if (!userId) {
+                console.error("User ID is missing or undefined.");
+                return;
+            }
+
+            const Welcome = document.getElementById('welcome-user-header');
+
+                // Fetch user name from server using user ID
+                fetch(`/get-user-name?user_id=${userId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.name) {
+                           Welcome.textContent = `Welcome ${data.name}`;
+                        } else {
+                            console.error('Invalid data format:', data);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching user name:', error));
+        };
+            </script>
+
+              <div id="Button Container" class="Main-Button-Container">
+                <button id="fitness button" type="button" class="button Fitness-Button">Fitness</button>
+                <a href="#Nutrition main header" id="Nutrition Button" class="main-link button Nutrition-Button">Nutrition </a>
+                    </div>
+                    <section id="Fitness Container" class="Fitness-Section">
+                        <div id="fitness-header-container" class="Fitness-Header-Container">
+                            <h1 id="Fitness Heading 1" class="Fitness-heading-1">Recommended Video Demos</h1>
+                            </div>
+                            <div id="Outer Videos container" class="Main-Video-Container">
+                                <div id="Inner Videos Container" class="Inner-video-container">
+                                    <iframe id="iFrame 1" class="main-iframe" src="https://www.youtube.com/embed/6zi5Olw5BYQ?si=410C9PXnzrttvr8A" ></iframe>
+                                    <iframe id="iFrame 2" class="main-iframe1" src="https://www.youtube.com/embed/YGGq0AE5Uyc?si=AzCAdY1jjLGGqJD7"></iframe>
+                                    <iframe id="iFrame 3" class="main-iframe2" src="https://www.youtube.com/embed/auBLPXO8Fww?si=GO4X-bS0WGyZCOUJ" ></iframe>
+                                    <iframe id="iFrame 4" class="main-iframe3" src="https://www.youtube.com/embed/5NeRyDGAT_M?si=aDDUFUIFR1n-CHYC"></iframe>
+                                    <iframe id="iFrame 5" class="main-iframe4" src="https://www.youtube.com/embed/3TM-vVWuLYE?si=dAYoO2l8K5n4rJwl"></iframe>
+                                    <iframe id="iFrame 6" class="main-iframe5" src="https://www.youtube.com/embed/s6coxb732BA?si=5-s2MvWapSOOQphP"></iframe>
+                                </div>
+                            </div>
+                                <div id="tips container" class="Fitness-tips-container"><p class="Tips-text">Start slow and gradually increase intensity and 
+                                  duration as your fitness improves to avoid injury and burnout. (1-2 sessions per week): Alternate short 
+                                  bursts of intense activity with periods of rest or lower-intensity exercise. High-intensity interval training (HIIT) can be a time-efficient 
+                                  way to boost your cardiovascular health.
+                                </p>
+                                    </div>
+                                    <div class="main-container09 Fitness-header-container-2">
+                                        <h1 id="Fitness-header-2" class="main-text09 fitness-header-2">Physical Activites</h1>
+                                        </div>
+                                        <div id="outer Activity container" class="Main-Activities-container">
+                                            <div id="inner activities container" class="Inner-Activity-container">
+                                                <a href="https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-q-and-a-running-and-weight-loss/"><!--<img alt="image" src="./public/Running.jpg" id="Activities img 1" class="main-image01" title="Burn calories and boost mood with a run.">-->
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Man Jogging.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Running/</br>Jogging</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://elitejumps.co/blogs/guides/how-jump-rope-can-help-you-lose-weight"><!--<img alt="image" src="./public/Jumping Rope.jpg" id="Activities img 2" class="main-image02" title="Double Dutch your way to fitness! Fun, fast, and full-body burn.">-->
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Jumping Rope.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Jumping Rope</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://www.weightlossresources.co.uk/exercise/tennis-fitness-benefits.htm"><!--<img alt="image" src="./public/Tennis2.jpg" id="Activities img 3" class="main-image03" title="Get a high-energy workout with a friendly competition.">-->
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Tennis2.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Tennis</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                                <a href="https://www.nbcnews.com/better/health/why-you-should-work-out-crowd-ncna798936"><!--<img alt="image" src="./public/Fitness Class.jpg" id="Activities img 4" class="main-image04" title="Find your tribe and have fun getting fit together.">-->
+                                                    <div class="card">
+                                                        <img alt="image" src="./public/Fitness Class.jpg" id="Meal img 1">
+                                                        <div class="card__content" title="Learn the Benefits! Click Here.">
+                                                          <p class="card__title">Fitness Classes</p>
+                                                        </div>
+                                                      </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                </section>
+                                        <div id="Nutrition main header" class="Nutrition-main-container">
+                                    <h1 id="Nutrition section header" class="Main-Nutrition-header">Nutrition</h1>
+                                    </div>
+                                    
+            <section id="nutrition section" class="Nutrition-Section">
+                <div class="Nurition-reccomendation-container">
+                    <h1 id="nutrition recommendation header" class="Nutrition-header-1">Nutrition Recommendation</h1>
+                    </div>
+                    <div id="outer recommendation container" class="Main-Recommendation-container">
+                        <div id="inner container layer 1" class="Inner-recommendation-container">
+                            <div class="main-container17"><p class="Nutrition-text"></p><h3>Healthy Eating Habits:</h3></br>- Fruits and vegetables (aim for at least 5 servings per day)</br>- Lean protein sources (chicken, fish, beans, lentils)</br>- Low-fat or fat-free dairy (milk, yogurt, cheese)</div>
+                            <div class="main-container18"><p class="Nutrition-text"></p><h3>Focus on Calorie Deficit:</h3></br>- Aim to consume fewer calories than you burn each day to create a calorie deficit for weight management. A doctor or registered dietitian can help determine a safe and appropriate calorie goal.</div>
+                            <div class="main-container19"><p class="Nutrition-text"></p><h3>Limit Processed Foods:</h3></br>- Reduce processed foods high in unhealthy fats, added sugars, and sodium. These contribute to excess calories and offer minimal nutritional value.</div>
+                            <div class="main-container20"><p class="Nutrition-text"></p><h3>Healthy Cooking Methods:</h3></br>- Choose healthy cooking methods like grilling, baking, steaming, or stir-frying to minimize added fat and retain nutrients.</div>
+                        </div>
+                    </div>
+                        <div id="meal plan header container" class="Meal-plan-header-container">
+                            <h1 id="Meal plan header" class="Nutrition-header-2">Recommended Meal Plans</h1>
+                            </div>
+                            <div id="outer meal plan container" class="Main-mealPlan-container">
+                                <div id="inner meal Plan container" class="inner-mealPlan-container">
+
+                                  <a href="https://www.thespruceeats.com/healthy-spinach-scrambled-eggs-4019034">
+                                    <div class="card">
+                                        <img alt="image" src="./public/Whole wheat Toast.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Whole-wheat Toast with Eggs and Spinach.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                  <a href="https://www.eatwise.ai/recipes/lentil-soup-with-whole-grain-roll-3006">
+                                    <div class="card">
+                                        <img alt="image" src="./public/Lentil Soup.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Lentil soup with a whole-grain Roll.</p>
+                                        </div>
+                                      </div>
+                                   </a>   
+
+                                   <a href="https://www.veganeasy.org/recipes/homemade-hummus-with-veggie-sticks/">
+                                    <div class="card">
+                                        <img alt="image" src="./public/Veggie Sticks.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Vegetable sticks with Hummus.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                  <a href="https://www.eatyourselfskinny.com/the-best-turkey-chili-youll-ever-taste/">
+                                    <div class="card">
+                                        <img alt="image" src="./public/turkey-chili.jpg" id="Meal img 1">
+                                        <div class="card__content" title="Hungry? Click to Explore!">
+                                          <p class="card__title">Turkey chili with a side of Vegetables.</p>
+                                        </div>
+                                      </div>
+                                  </a>
+
+                                </div>
+                            </div>
+                    </section>
+
+                    <footer id="Footer Container" class="main-container24 Main-Footer">
+                        <div class="main-container25">
+                            <p id="logo Name" class="main-logo logo Company-Name-footer">Persofitri</p>
+                            </div>
+                            <div id="footer seperator" class="Footer-Seperator"></div>
+                            <p id="end credits" class="main-text13 bodySmall end-credits-footer">© 2024 Persofitri, All Rights Reserved.</p>
+                    </footer>
+                    </div>
+                </div>
+  </body>
+</html>

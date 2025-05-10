@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
+      * {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  gap: 50px;
+  margin: 0;
+  height: 100vh;
+  padding: 0 32px;
+  background: #514f53;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+@media (width >= 500px) {
+  body {
+    padding: 0;
+  }
+}
+
+.background {
+  position: fixed;
+  top: -50vmin;
+  left: -50vmin;
+  width: 100vmin;
+  height: 100vmin;
+  border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+  background: #101D2F;
+  box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+-webkit-box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+-moz-box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+}
+
+.background::after {
+  content: "";
+  position: inherit;
+  right: -50vmin;
+  bottom: -55vmin;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: #D84B06;
+  box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+-webkit-box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+-moz-box-shadow: 24px 0px 119px -7px rgba(0,0,0,0.69);
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+  width: 94%;
+  margin: 0 20px;
+  padding: 170px 30px 54px;
+  border-radius: 24px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 50px 100px rgb(0 0 0 / 10%);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -880px;
+  left: 50%;
+  translate: -50% 0;
+  width: 1000px;
+  height: 1000px;
+  border-radius: 50%;
+  background: #9ba6a9;
+}
+
+@media (width >= 500px) {
+  .card {
+    margin: 0;
+    width: 360px;
+  }
+}
+
+.card .logo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  translate: -50% 0;
+  width: 125px;
+  height: 93px;
+  cursor: pointer;
+}
+
+.card > h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 38px;
+  color: rgb(0 0 0 / 38%);
+}
+
+.form {
+  margin: 0 0 44px;
+  display: grid;
+  gap: 12px;
+}
+
+.form :is(input) {
+  width: 100%;
+  height: 56px;
+  border-radius: 28px;
+  font-family: "Freeman", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 15px;
+}
+
+.form > input {
+  border: 0;
+  padding: 0 24px;
+  color: #222222;
+  background: #ededed;
+}
+
+.form > input::placeholder {
+  color: rgb(0 0 0 / 28%);
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container > input::placeholder {
+  color: rgb(0 0 0 / 28%);
+}
+
+.password-container > input {
+  border: 0;
+  padding: 0 24px;
+  color: #222222;
+  background: #ededed;
+}
+
+.container {
+  --color: #828286;
+  --size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+}
+
+.container .eye {
+  position: absolute;
+  animation: keyframes-fill .5s;
+}
+
+.container .eye-slash {
+  position: absolute;
+  animation: keyframes-fill .5s;
+  display: none;
+}
+
+.container input:checked ~ .eye {
+  display: none;
+}
+
+.container input:checked ~ .eye-slash {
+  display: block;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+@keyframes keyframes-fill {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+
+  50% {
+      transform: scale(1.2);
+  }
+}
+
+.form > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 5px;
+  gap: 15px;
+  background-color: #007ACC;
+  outline: 3px #007ACC solid;
+  outline-offset: -3px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+.button:hover {
+  background-color: transparent;
+}
+
+.card > footer {
+  color: #6d6868;
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: large;
+  
+}
+
+.card > footer > a {
+  color: #216ce7;
+}
+
+.Header-text{
+  font-family: "Kanit", sans-serif;
+  font-weight: 530;
+  font-style: normal;
+  font-size: 21px;
+}
+
+.btnText{
+  color:#ededed;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+}
